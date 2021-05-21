@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using InterestCalculator.Domain.Handlers;
+using InterestCalculator.Domain.Services;
+using InterestCalculator.Domain.Services.Contracts;
+using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 
 namespace InterestCalculator.IoC.DependencyInjection.Domain
@@ -7,6 +10,8 @@ namespace InterestCalculator.IoC.DependencyInjection.Domain
     {
         internal static Task InjectDomain(IServiceCollection services)
         {
+            services.AddScoped<IInterestRateService, InterestRateService>();
+            services.AddScoped<InterestCalculatorHandler>();
             return Task.CompletedTask;
         }
     }
