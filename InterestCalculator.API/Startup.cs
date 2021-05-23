@@ -23,7 +23,7 @@ namespace InterestCalculator.API
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Calculadora de Juros",
-                    Description = "Api com a finalidade de disponibilizar o cálculo de valores com juros compostos.",
+                    Description = "Api com a finalidade de disponibilizar o calculo de juros compostos.",
                     Version = "v1"
                 });
             });
