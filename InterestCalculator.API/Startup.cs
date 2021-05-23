@@ -37,7 +37,7 @@ namespace InterestCalculator.API
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraDeJuros.API v1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraJuros.API v1");
                 options.DocumentTitle = "Api Calculadora de Juros";
             });
             app.UseRouting();

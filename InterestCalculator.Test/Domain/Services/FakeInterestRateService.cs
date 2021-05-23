@@ -6,7 +6,7 @@ namespace InterestCalculator.Test.Domain.Services
 {
     class FakeInterestRateService : IInterestRateService
     {
-        private bool _yourServiceIsOnline;
+        private readonly bool _yourServiceIsOnline;
 
         public FakeInterestRateService(bool yourServiceIsOnline = true) =>
             _yourServiceIsOnline = yourServiceIsOnline;

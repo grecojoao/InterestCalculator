@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InterestCalculator.IoC.DependencyInjection.Domain
 {
-    class DomainInjector
+    static class DomainInjector
     {
         internal static Task InjectDomain(IServiceCollection services, IConfiguration configuration)
         {
