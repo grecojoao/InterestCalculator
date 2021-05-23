@@ -22,8 +22,7 @@ namespace InterestCalculator.Domain.Notifications
         public void AddNotifications(IEnumerable<Notification> notifications)
         {
             foreach (var notification in notifications)
-                if (notification != null)
-                    _notifications.Add(notification);
+                AddNotification(notification);
         }
 
         public string NotificationsMessage() =>

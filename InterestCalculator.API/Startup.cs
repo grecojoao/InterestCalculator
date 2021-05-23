@@ -18,16 +18,16 @@ namespace InterestCalculator.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Calculadora de Juros",
                     Description = "Api com a finalidade de disponibilizar o cálculo de valores com juros compostos.",
                     Version = "v1"
                 });
             });
-            DependencyInjector.InjectDependencies(services).Wait();
+            DependencyInjector.InjectDependencies(services, Configuration).Wait();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -35,10 +35,10 @@ namespace InterestCalculator.API
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
+            app.UseSwaggerUI(options =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraDeJuros.API v1");
-                c.DocumentTitle = "Api Calculadora de Juros";
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraDeJuros.API v1");
+                options.DocumentTitle = "Api Calculadora de Juros";
             });
             app.UseRouting();
             app.UseAuthorization();

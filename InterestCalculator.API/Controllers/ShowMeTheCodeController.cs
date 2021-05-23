@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InterestCalculator.API.Controllers
 {
-    public class ApiController : ControllerBase
+    [ApiController]
+    [Route("[controller]")]
+    public class ShowMeTheCodeController : ControllerBase
     {
         [HttpGet("/showmethecode")]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
