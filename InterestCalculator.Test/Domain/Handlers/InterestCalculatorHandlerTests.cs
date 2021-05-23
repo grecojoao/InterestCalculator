@@ -59,5 +59,15 @@ namespace InterestCalculator.Test.Domain.Handlers
             var commandResult = await _handler.Handle(commandValid, default);
             Assert.True(commandResult.Sucess && (decimal)commandResult.Data == 0.00m);
         }
+
+        [Test]
+        [Category("Handlers")]
+        public async Task DadoUmComandoValidoComValorParaCalculoEComQuantidadeDeMesesPoremComOServicoDeTaxaJurosOfflineORetornoDeveSerDeSucessoEResultadoFinalCemReais()
+        {
+            var commandValid = new CalculateInterestCommand(100m, 5);
+            _handler = new InterestCalculatorHandler(new FakeInterestRateService(yourServiceIsOnline: false));
+            var commandResult = await _handler.Handle(commandValid, default);
+            Assert.True(commandResult.Sucess && (decimal)commandResult.Data == 100.00m);
+        }
     }
 }
