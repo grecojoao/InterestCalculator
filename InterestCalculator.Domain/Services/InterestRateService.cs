@@ -18,13 +18,14 @@ namespace InterestCalculator.Domain.Services
         {
             try
             {
-                using var httpClient = new HttpClient() { Timeout = TimeSpan.FromMilliseconds(800) };
+                using var httpClient = new HttpClient();
                 var response = await httpClient.GetAsync(_endpointAddress.Url, cancellationToken);
                 var data = await response.Content.ReadAsStringAsync(cancellationToken);
                 var interestRate = JsonSerializer.Deserialize<decimal>(data);
                 return interestRate;
             }
             catch (HttpRequestException)
+
             {
                 return 0m;
             }
